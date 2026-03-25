@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - MotoShowroom</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Admin Navigation -->
+  <nav class="admin-navbar">
+    <div class="admin-nav-container">
+      <div class="logo">⚡ MotoShowroom Admin</div>
+      <div class="nav-right">
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Admin Container -->
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <ul class="admin-menu">
+        <li><a href="#overview" class="admin-menu-link active">📊 Overview</a></li>
+        <li><a href="#motorcycles" class="admin-menu-link">🏍️ Motorcycles</a></li>
+        <li><a href="#add-motorcycle" class="admin-menu-link">➕ Add New</a></li>
+        <li><a href="#analytics" class="admin-menu-link">📈 Analytics</a></li>
+        <li><a href="index.html" class="admin-menu-link">← Back to Store</a></li>
+      </ul>
+    </aside>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+      <!-- Overview Section -->
+      <section id="overview" class="admin-section active">
+        <h1>Dashboard Overview</h1>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Motorcycles</h3>
+            <p class="stat-number" id="totalMotorcycles">0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Average Price</h3>
+            <p class="stat-number" id="avgPrice">$0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Categories</h3>
+            <p class="stat-number" id="totalCategories">5</p>
+          </div>
+          <div class="stat-card">
+            <h3>In Stock</h3>
+            <p class="stat-number" id="inStockCount">0</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Motorcycles List Section -->
+      <section id="motorcycles" class="admin-section">
+        <h1>Manage Motorcycles</h1>
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="motorcyclesTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Add/Edit Motorcycle Section -->
+      <section id="add-motorcycle" class="admin-section">
+        <h1>Add New Motorcycle</h1>
+        <form class="admin-form" id="motorcycleForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Name *</label>
+              <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+              <label>Brand *</label>
+              <input type="text" name="brand" required>
+            </div>
+            <div class="form-group">
+              <label>Price ($) *</label>
+              <input type="number" name="price" min="0" required>
+            </div>
+            <div class="form-group">
+              <label>Category *</label>
+              <select name="category" required>
+                <option value="">Select Category</option>
+                <option value="sport">Sport</option>
+                <option value="cruiser">Cruiser</option>
+                <option value="touring">Touring</option>
+                <option value="offroad">Off-Road</option>
+                <option value="adventure">Adventure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Engine Size</label>
+              <input type="text" name="engineSize" placeholder="e.g., 1000cc">
+            </div>
+            <div class="form-group">
+              <label>Power (HP)</label>
+              <input type="text" name="power" placeholder="e.g., 150 HP">
+            </div>
+            <div class="form-group">
+              <label>Torque (Nm)</label>
+              <input type="text" name="torque" placeholder="e.g., 115 Nm">
+            </div>
+            <div class="form-group">
+              <label>Weight (kg)</label>
+              <input type="text" name="weight" placeholder="e.g., 210 kg">
+            </div>
+            <div class="form-group">
+              <label>Max Speed (km/h)</label>
+              <input type="text" name="maxSpeed" placeholder="e.g., 300 km/h">
+            </div>
+            <div class="form-group">
+              <label>Model URL (GLB)</label>
+              <input type="text" name="modelUrl" placeholder="/models/bike.glb">
+            </div>
+            <div class="form-group">
+              <label>Image URL</label>
+              <input type="text" name="image" placeholder="/images/bike.jpg">
+            </div>
+            <div class="form-group">
+              <label>In Stock</label>
+              <select name="inStock">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label>Description</label>
+            <textarea name="description" rows="5" placeholder="Detailed description..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Add Motorcycle</button>
+        </form>
+      </section>
+
+      <!-- Analytics Section -->
+      <section id="analytics" class="admin-section">
+        <h1>Analytics</h1>
+        <div class="analytics-container">
+          <div class="analytics-card">
+            <h3>Motorcycles by Category</h3>
+            <div id="categoryBreakdown"></div>
+          </div>
+          <div class="analytics-card">
+            <h3>Price Range Distribution</h3>
+            <div id="priceDistribution"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

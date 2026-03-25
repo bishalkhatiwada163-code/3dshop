@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoShowroom - Premium 3D Motorcycle Experience</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">⚡ MotoShowroom</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="products.html" class="nav-link">Shop</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="cart-btn" id="cartBtn">🛒 <span id="cartCount">0</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Shopping Cart</h2>
+      <button class="close-btn" id="closeCart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <strong>Total:</strong>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+      <button class="clear-cart-btn" id="clearCartBtn">Clear Cart</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero reveal-section">
+    <div class="hero-content">
+      <div class="hero-kicker">Built for Riders Who Love Precision</div>
+      <h1 class="hero-title">Experience the Future of Motorcycles</h1>
+      <p class="hero-subtitle">Explore stunning 3D models of world-class motorcycles</p>
+      <div class="hero-pills">
+        <span class="hero-pill">Live Inventory</span>
+        <span class="hero-pill">3D Model Preview</span>
+        <span class="hero-pill">Fast Nationwide Delivery</span>
+      </div>
+      <div class="hero-viewer">
+        <div id="heroCanvas" class="hero-canvas"></div>
+      </div>
+      <a href="products.html" class="cta-button">Explore Collection</a>
+      <a href="#featured" class="scroll-hint">Scroll to Featured</a>
+    </div>
+  </section>
+
+  <section class="trust-strip reveal-section">
+    <div class="trust-grid">
+      <div class="trust-card">
+        <p class="trust-label">Bikes Listed</p>
+        <p class="trust-value" data-target="120">0</p>
+      </div>
+      <div class="trust-card">
+        <p class="trust-label">Happy Riders</p>
+        <p class="trust-value" data-target="3200">0</p>
+      </div>
+      <div class="trust-card">
+        <p class="trust-label">Average Rating</p>
+        <p class="trust-value" data-target="49" data-decimals="1">0.0</p>
+      </div>
+      <div class="trust-card">
+        <p class="trust-label">Support Response</p>
+        <p class="trust-value" data-target="24">0</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="featured reveal-section" id="featured">
+    <h2 class="section-title">Featured Motorcycles</h2>
+    <p class="section-subtitle">Handpicked machines trending with our rider community.</p>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories reveal-section">
+    <h2 class="section-title">Browse by Category</h2>
+    <p class="section-subtitle">Jump straight into the riding style you love most.</p>
+    <div class="category-grid">
+      <div class="category-card reveal-item" data-category="sport">
+        <h3>Sport Bikes</h3>
+        <p>High-speed performance machines</p>
+      </div>
+      <div class="category-card reveal-item" data-category="cruiser">
+        <h3>Cruisers</h3>
+        <p>Comfort meets style</p>
+      </div>
+      <div class="category-card reveal-item" data-category="touring">
+        <h3>Touring</h3>
+        <p>Adventure awaits</p>
+      </div>
+      <div class="category-card reveal-item" data-category="offroad">
+        <h3>Off-Road</h3>
+        <p>Conquer any terrain</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features reveal-section" id="about">
+    <h2 class="section-title">Why Choose MotoShowroom</h2>
+    <p class="section-subtitle">A showroom flow designed for speed, clarity, and confidence.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal-item">
+        <div class="feature-icon">🎯</div>
+        <h3>Premium Selection</h3>
+        <p>Handpicked collection of the world's finest motorcycles</p>
+      </div>
+      <div class="feature-card reveal-item">
+        <div class="feature-icon">🔍</div>
+        <h3>3D Visualization</h3>
+        <p>Explore every detail with our interactive 3D models</p>
+      </div>
+      <div class="feature-card reveal-item">
+        <div class="feature-icon">🚚</div>
+        <h3>Fast Delivery</h3>
+        <p>Quick and secure delivery to your doorstep</p>
+      </div>
+      <div class="feature-card reveal-item">
+        <div class="feature-icon">💳</div>
+        <h3>Secure Payment</h3>
+        <p>Safe and encrypted payment processing</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights reveal-section" id="insights">
+    <h2 class="section-title">Performance Insights</h2>
+    <p class="section-subtitle">Live showroom indicators that help riders choose faster.</p>
+    <div class="insight-grid" id="insightGrid"></div>
+  </section>
+
+  <section class="reviews reveal-section" id="reviews">
+    <h2 class="section-title">Rider Stories</h2>
+    <p class="section-subtitle">What riders love after buying through MotoShowroom.</p>
+    <div class="review-grid" id="reviewGrid"></div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact reveal-section" id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <form class="contact-form" id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>MotoShowroom</h4>
+        <p>Your ultimate destination for premium motorcycles</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="products.html">Shop</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MotoShowroom. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@r128/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@r128/examples/js/controls/OrbitControls.js"></script>
+  <script src="app.js"></script>
+  <script src="three-viewer.js"></script>
+</body>
+</html>

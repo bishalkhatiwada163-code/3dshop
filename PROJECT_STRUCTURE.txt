@@ -1,0 +1,14 @@
+cat > replace_old_files.sh << 'EOF'
+#!/bin/bash
+# Remove old files and organize structure
+rm -f project.html script.js style.css
+
+# Create directories if they don't exist
+mkdir -p models public controllers routes models
+
+echo "✓ Cleaned up old files"
+echo "✓ Project restructured"
+EOF
+
+chmod +x replace_old_files.sh
+./replace_old_files.sh
