@@ -9,6 +9,15 @@ const API_BASE = (() => {
     return window.__ENV__.REACT_APP_API_URL;
   }
 
+  if (typeof window !== 'undefined' && window.location) {
+    const host = window.location.hostname;
+    const isLocalHost = host === 'localhost' || host === '127.0.0.1';
+    if (isLocalHost) {
+      return 'http://localhost:5000/api';
+    }
+    return `${window.location.origin}/api`;
+  }
+
   // Guard against plain browser runtime where `process` is not defined.
   if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_URL) {
     return process.env.REACT_APP_API_URL;
