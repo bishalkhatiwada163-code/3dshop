@@ -8,31 +8,23 @@
   "functions": {
     "server.js": {
       "memory": 1024,
-      "maxDuration": 60
+      "maxDuration": 60,
+      "includeFiles": [
+        "index.html",
+        "products.html",
+        "admin.html",
+        "style.css",
+        "app.js",
+        "products.js",
+        "admin.js",
+        "three-viewer.js"
+      ]
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server.js"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/public/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=3600"
-        }
-      ]
+      "source": "/:path*",
+      "destination": "/server.js"
     }
   ],
   "trailingSlash": false
